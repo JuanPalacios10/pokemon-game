@@ -1,0 +1,25 @@
+Nombre,Tipo1,Tipo2,HP,Ataque,Defensa,Velocidad,Ataque1,Ataque2,SuperAtaque
+Venusaur,Planta,Veneno,80,82,83,80,Hoja Afilada,Terremoto,Rayo Solar
+Charizard,Fuego,Volador,78,84,78,100,Garra Dragón,Lanzallamas,Llamarada
+Blastoise,Agua,,79,83,100,78,Hidrobomba,Ice Beam,Hidroariete
+Pikachu,Eléctrico,,35,55,40,90,Impactrueno,Trueno,Voltio Cruel
+Raichu,Eléctrico,,60,90,55,110,Impactrueno,Trueno,Voltio Cruel
+Nidoking,Veneno,Tierra,81,92,77,85,Martillazo,Terremoto,Megacuerno
+Clefable,Hada,,95,70,73,60,Mega Puño,Triataque,Hiperrayo
+Ninetales,Fuego,,73,76,75,100,Lanzallamas,Giro Fuego,Llamarada
+Arcanine,Fuego,,90,110,80,95,Lanzallamas,Colmillo Ígneo,Giro Fuego
+Alakazam,Psíquico,,55,50,45,120,Psíquico,Confusión,Psicorrayo
+Machamp,Lucha,,90,130,80,55,Sumisión,Doble Patada,Mega Puño
+Golem,Roca,Tierra,80,110,130,45,Lanzarrocas,Terremoto,Explosión
+Gengar,Fantasma,Veneno,60,65,60,110,Bola Sombra,Lengüetazo,Pulso Umbrío
+Exeggutor,Planta,Psíquico,95,95,85,55,Psíquico,Semilladora,Rayo Solar
+Hitmonlee,Lucha,,50,120,53,87,Patada Salto Alta,Doble Patada,Mega Patada
+Hitmonchan,Lucha,,50,105,79,76,Mega Puño,Contra,Ultrapuño
+Rhydon,Tierra,Roca,105,130,120,40,Terremoto,Roca Afilada,Megacuerno
+Dragonite,Dragón,Volador,91,134,95,80,Garra Dragón,Hiperrayo,Enfado
+Snorlax,Normal,,160,110,65,30,Placaje,Hiperrayo,Destructor
+Gyarados,Agua,Volador,95,125,79,81,Hidrobomba,Mordisco,Hidroariete
+Lapras,Agua,Hielo,130,85,80,60,Ice Beam,Hidrobomba,Ventisca
+Vaporeon,Agua,,130,65,60,65,Hidrobomba,Ice Beam,Hidroariete
+Jolteon,Eléctrico,,65,65,60,130,Trueno,Impactrueno,Voltio Cruel
+Flareon,Fuego,,65,130,60,65,Lanzallamas,Giro Fuego,Llamarada
