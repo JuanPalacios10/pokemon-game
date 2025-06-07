@@ -1,8 +1,9 @@
 from abc import ABC
+from src.pokemon.pokemon import Pokemon
 
 
 class Trainer(ABC):
-    def __init__(self, name: str, pokemon: list):
+    def __init__(self, name: str, pokemon: list[Pokemon]):
         self.__current = 0
         self.__pokemon = pokemon
         self.__health = 100
@@ -11,7 +12,7 @@ class Trainer(ABC):
     def get_name(self) -> str:
         return self.__name
 
-    def get_current_pokemon(self):
+    def get_current_pokemon(self) -> Pokemon:
         return self.__pokemon[self.__current]
 
     def get_current_pokemon_health(self) -> int:
@@ -23,7 +24,7 @@ class Trainer(ABC):
 
         self.__health = health
 
-    def get_pokemon(self) -> list:
+    def get_pokemon(self) -> list[Pokemon]:
         return [
             pokemon
             for index, pokemon in enumerate(self.__pokemon)

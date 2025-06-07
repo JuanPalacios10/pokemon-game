@@ -1,6 +1,4 @@
-from typing import Dict
-
-moves: Dict[str, Dict[str, int]] = {
+moves: dict[str, dict[str, str | int]] = {
     "Hoja Afilada": {"tipo": "Planta", "poder": 55},
     "Terremoto": {"tipo": "Tierra", "poder": 100},
     "Rayo Solar": {"tipo": "Planta", "poder": 120},
@@ -40,5 +38,6 @@ moves: Dict[str, Dict[str, int]] = {
     "Placaje": {"tipo": "Normal", "poder": 40},
     "Destructor": {"tipo": "Normal", "poder": 250},
     "Mordisco": {"tipo": "Siniestro", "poder": 80},
-    "Ventisca": {"tipo": "Hielo", "poder": 110}
+    "Ventisca": {"tipo": "Hielo", "poder": 110},
 }
+
