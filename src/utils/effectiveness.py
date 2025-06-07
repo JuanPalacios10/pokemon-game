@@ -1,0 +1,61 @@
+from typing import Dict
+
+effectiveness: Dict[str, Dict[str, float]] = {
+    "Fuego": {
+        "Planta": 2.0,
+        "Hielo": 2.0,
+        "Bicho": 2.0,
+        "Acero": 2.0,
+        "Fuego": 0.5,
+        "Agua": 0.5,
+        "Roca": 0.5,
+        "Dragón": 0.5
+    },
+    "Agua": {
+        "Fuego": 2.0,
+        "Tierra": 2.0,
+        "Roca": 2.0,
+        "Agua": 0.5,
+        "Planta": 0.5,
+        "Dragón": 0.5
+    },
+    "Planta": {
+        "Agua": 2.0,
+        "Tierra": 2.0,
+        "Roca": 2.0,
+        "Fuego": 0.5,
+        "Planta": 0.5,
+        "Veneno": 0.5,
+        "Volador": 0.5,
+        "Bicho": 0.5,
+        "Dragón": 0.5,
+        "Acero": 0.5
+    },
+    "Eléctrico": {
+        "Agua": 2.0,
+        "Volador": 2.0,
+        "Planta": 0.5,
+        "Eléctrico": 0.5,
+        "Dragón": 0.5,
+        "Tierra": 0.0
+    },
+    "Lucha": {
+        "Normal": 2.0,
+        "Hielo": 2.0,
+        "Roca": 2.0,
+        "Siniestro": 2.0,
+        "Acero": 2.0,
+        "Veneno": 0.5,
+        "Volador": 0.5,
+        "Psíquico": 0.5,
+        "Bicho": 0.5,
+        "Hada": 0.5,
+        "Fantasma": 0.0
+    },
+    "Fantasma": {
+        "Psíquico": 2.0,
+        "Fantasma": 2.0,
+        "Siniestro": 0.5,
+        "Normal": 0.0
+    },
+}

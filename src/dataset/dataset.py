@@ -1,10 +1,10 @@
 import pandas as pd
-import pprint as pp
-
+import os
 
 class Dataset:
     def __init__(self) -> None:
-        self.data: pd.DataFrame = pd.read_csv("pokedex.csv")
+        ruta = os.path.join(os.path.dirname(__file__), "pokedex.csv")
+        self.data: pd.DataFrame = pd.read_csv(ruta)
 
     def get_pokemon_by_name(self, name: str) -> dict[str, int | str] | str:
         result: pd.DataFrame = self.data[self.data["Nombre"] == name]
@@ -12,8 +12,3 @@ class Dataset:
             return result.iloc[0].to_dict()
         else:
             return f"Pokemon {name} not found."
-
-
-pokemon1 = Dataset()
-pp.pprint(pokemon1.get_pokemon_by_name("Pikachu"))
-print(pokemon1.get_strong_pokemon())
