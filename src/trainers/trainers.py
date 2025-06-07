@@ -21,6 +21,7 @@ class Trainer(ABC):
     def set_current_pokemon_health(self, health: int) -> None:
         if health < 0:
             self.__health = 0
+            return
 
         self.__health = health
 

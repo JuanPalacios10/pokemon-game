@@ -70,5 +70,5 @@ class Combat:
         if not trainer.is_current_pokemon_alive():
             trainer.set_pokemon()
 
-    def enmey_choose_attack(self):
+    def enemy_choose_attack(self):
         pass

@@ -14,7 +14,7 @@ class Pokemon:
 
     def get_type_2(self) -> str | None:
         tipo2 = self._data.get("Tipo2")
-        return tipo2 if not math.isnan(tipo2) else None
+        return tipo2 if isinstance(tipo2, int) and not math.isnan(tipo2) else None
 
     def get_hp(self) -> int:
         return int(self._data["HP"])
