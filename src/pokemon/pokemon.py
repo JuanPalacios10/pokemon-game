@@ -1,9 +1,9 @@
-from typing import Optional
 from src.utils.moves import moves
 import math
 
+
 class Pokemon:
-    def __init__(self, data: dict[str, int | str | float]) -> None:
+    def __init__(self, data: dict[str, int | str]) -> None:
         self._data = data
 
     def get_name(self) -> str:
@@ -12,9 +12,9 @@ class Pokemon:
     def get_type_1(self) -> str:
         return self._data["Tipo1"]
 
-    def get_type_2(self) -> Optional[str]:
+    def get_type_2(self) -> str | None:
         tipo2 = self._data.get("Tipo2")
-        return tipo2 if not (isinstance(tipo2, float) and math.isnan(tipo2)) else None
+        return tipo2 if isinstance(tipo2, int) and not math.isnan(tipo2) else None
 
     def get_hp(self) -> int:
         return int(self._data["HP"])
@@ -34,11 +34,12 @@ class Pokemon:
     def get_speed(self) -> int:
         return int(self._data["Velocidad"])
 
-    def get_damage(self, move_name: str) -> Optional[float]:
+    def get_damage(self, move_name: str) -> int | None:
         power = moves.get(move_name, {}).get("poder")
         if power is not None:
             return int(self._data["Ataque"]) * power
+
         return None
 
-    def get_move_type(self, move_name: str) -> Optional[str]:
+    def get_move_type(self, move_name: str) -> str | None:
         return moves.get(move_name, {}).get("tipo")
