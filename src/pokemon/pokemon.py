@@ -34,12 +34,12 @@ class Pokemon:
     def get_speed(self) -> int:
         return int(self._data["Velocidad"])
 
-    def get_damage(self, move_name: str) -> int | None:
+    def get_damage(self, move_name: str) -> int:
         power = moves.get(move_name, {}).get("poder")
         if power is not None:
             return int(self._data["Ataque"]) * power
 
-        return None
+        return 0
 
-    def get_move_type(self, move_name: str) -> str | None:
-        return moves.get(move_name, {}).get("tipo")
+    def get_move_type(self, move_name: str) -> str:
+        return moves.get(move_name, {}).get("tipo", "")
