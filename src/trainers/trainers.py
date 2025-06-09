@@ -26,15 +26,13 @@ class Trainer(ABC):
 
         self.__health = health
 
-    # def get_pokemon(self) -> list[Pokemon]:
-    #     return [
-    #         pokemon
-    #         for index, pokemon in enumerate(self.__pokemon)
-    #         if index != self.__current
-    #     ]
+    def get_live_pokemon(self) -> int:
+        if not self.is_alive():
+            return 0
+
+        return len(self.__pokemon) - self.__current
 
     def set_pokemon(self) -> None:
-        # self.__pokemon = self.get_pokemon()
         self.__set_current_pokemon()
 
         if not self.is_alive():
