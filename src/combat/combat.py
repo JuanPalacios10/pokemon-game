@@ -18,6 +18,7 @@ class Combat:
         self.__current_attack = ""
         self.__winner = None
         self.__next_turn()
+        self.DEFAULT_POKEMON_LEVEL = 20
 
     def __next_turn(self) -> None:
         speed_pokemon_player = self.__players[0].get_current_pokemon().get_speed()
@@ -34,6 +35,9 @@ class Combat:
             return
 
         self.__turn = random.choice([0, 1])
+        self.__state = (
+            CombatState.PLAYER_TURN if self.__turn == 0 else CombatState.ENEMY_TURN
+        )
 
     def get_info_player(self):
         player_name = self.__players[0].get_name()
@@ -121,7 +125,7 @@ class Combat:
     def __calculate_damage(
         self, current_trainer: Trainer, next_trainer: Trainer
     ) -> int:
-        level = 20
+        level = self.DEFAULT_POKEMON_LEVEL
         damage = (
             (
                 (((2 * level) // 5) + 2)
