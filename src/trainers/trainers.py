@@ -57,11 +57,3 @@ class Trainer(ABC):
 class Player(Trainer):
     def __init__(self, pokemon: list):
         super().__init__("Player", pokemon)
-
-
-class Enemy(Trainer):
-    def __init__(self, pokemon: list):
-        super().__init__("Enemy", pokemon)
-
-    def choose_attack(self):
-        pass

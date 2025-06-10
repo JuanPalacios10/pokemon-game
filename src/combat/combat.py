@@ -1,6 +1,7 @@
 from enum import Enum
 import random
-from src.trainers.trainers import Enemy, Player, Trainer
+from src.trainers.enemy.ia import Enemy
+from src.trainers.trainers import Player, Trainer
 from src.utils.effectiveness import effectiveness
 
 
