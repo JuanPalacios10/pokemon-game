@@ -1,7 +1,11 @@
 from enum import Enum
 import random
-from src.trainers.trainers import Enemy, Player, Trainer
+from typing import TYPE_CHECKING
+from src.trainers.trainers import Player, Trainer
 from src.utils.effectiveness import effectiveness
+
+if TYPE_CHECKING:
+    from src.trainers.enemy.ia import Enemy
 
 
 class CombatState(Enum):
@@ -12,7 +16,7 @@ class CombatState(Enum):
 
 
 class Combat:
-    def __init__(self, player: Player, enemy: Enemy):
+    def __init__(self, player: Player, enemy: "Enemy"):
         self.__state = CombatState.START
         self.__players = (player, enemy)
         self.__current_attack = ""
@@ -38,6 +42,9 @@ class Combat:
         self.__state = (
             CombatState.PLAYER_TURN if self.__turn == 0 else CombatState.ENEMY_TURN
         )
+
+    def get_players(self) -> tuple[Player, "Enemy"]:
+        return self.__players
 
     def get_info_player(self):
         player_name = self.__players[0].get_name()
@@ -86,12 +93,12 @@ class Combat:
     def get_winner(self) -> str | None:
         return self.__winner
 
-    def __set_winner(self, winner: str) -> None:
+    def set_winner(self, winner: str) -> None:
         self.__state = CombatState.WINNER
         self.__winner = winner
 
-    def __calculate_effectiveness(
-        self, current_trainer: Trainer, next_trainer: Trainer
+    def calculate_effectiveness(
+        self, current_trainer: Trainer, next_trainer: Trainer, attack: str
     ) -> float:
         efectivity = 0
         current_type_1 = current_trainer.get_current_pokemon().get_type_1()
@@ -114,7 +121,7 @@ class Combat:
 
         if current_type_2 is not None and next_type_2 is not None:
             type_attack = current_trainer.get_current_pokemon().get_move_type(
-                move_name=self.__current_attack
+                move_name=attack
             )
             efectivity = effectiveness.get(type_attack, {}).get(
                 next_type_1, 1.0
@@ -122,24 +129,24 @@ class Combat:
 
         return efectivity
 
-    def __calculate_damage(
-        self, current_trainer: Trainer, next_trainer: Trainer
+    def calculate_damage(
+        self, current_trainer: Trainer, next_trainer: Trainer, attack: str
     ) -> int:
         level = self.DEFAULT_POKEMON_LEVEL
         damage = (
             (
                 (((2 * level) // 5) + 2)
                 * (
-                    current_trainer.get_current_pokemon().get_damage(
-                        move_name=self.__current_attack
-                    )
+                    current_trainer.get_current_pokemon().get_damage(move_name=attack)
                     // next_trainer.get_current_pokemon().get_defense()
                 )
                 // 50
             )
             + 2
-        ) * self.__calculate_effectiveness(
-            current_trainer=current_trainer, next_trainer=next_trainer
+        ) * self.calculate_effectiveness(
+            current_trainer=current_trainer,
+            next_trainer=next_trainer,
+            attack=attack,
         )
 
         return int(damage)
@@ -150,13 +157,15 @@ class Combat:
         self.__next_trainer()
         next_trainer = self.__players[self.__turn]
 
-        damage = self.__calculate_damage(
-            current_trainer=current_trainer, next_trainer=next_trainer
+        damage = self.calculate_damage(
+            current_trainer=current_trainer,
+            next_trainer=next_trainer,
+            attack=self.__current_attack,
         )
         self.__set_damage_to_trainer(damage=damage, trainer=next_trainer)
 
         if not next_trainer.is_alive():
-            self.__set_winner(winner=current_trainer.get_name())
+            self.set_winner(winner=current_trainer.get_name())
 
         return damage
 
