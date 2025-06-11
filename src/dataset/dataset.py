@@ -13,3 +13,6 @@ class Dataset:
             return result.iloc[0].to_dict()
 
         raise ValueError(f"Pokemon with name '{name}' not found in the dataset.")
+
+    def get_all_pokemon_names(self) -> list[str]:
+        return self.data["Nombre"].tolist()
