@@ -176,6 +176,6 @@ class Combat:
             trainer.set_pokemon()
             self.__next_turn()
 
-    def enemy_set_attack(self) -> int:
+    def enemy_set_attack(self) -> tuple[str, int]:
         attack = self.__players[1].choose_attack(combat=self)
-        return self.set_attack(attack=attack)
+        return attack, self.set_attack(attack=attack)
