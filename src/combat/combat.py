@@ -56,6 +56,7 @@ class Combat:
             "player_name": player_name,
             "pokemon_name": current_pokemon.get_name(),
             "pokemon_health": health,
+            "pokemon_max_health": current_pokemon.get_hp(),
             "pokemon_attack_1": current_pokemon.get_move_1_name(),
             "pokemon_attack_2": current_pokemon.get_move_2_name(),
             "pokemon_super_attack": current_pokemon.get_super_move_name(),
@@ -72,9 +73,7 @@ class Combat:
             "enemy_name": enemy_name,
             "pokemon_name": current_pokemon.get_name(),
             "pokemon_health": health,
-            "pokemon_attack_1": current_pokemon.get_move_1_name(),
-            "pokemon_attack_2": current_pokemon.get_move_2_name(),
-            "pokemon_super_attack": current_pokemon.get_super_move_name(),
+            "pokemon_max_health": current_pokemon.get_hp(),
             "live_pokemon": live_pokemon,
         }
 
@@ -177,5 +176,6 @@ class Combat:
             trainer.set_pokemon()
             self.__next_turn()
 
-    def enemy_choose_attack(self):
-        pass
+    def enemy_set_attack(self) -> int:
+        attack = self.__players[1].choose_attack(combat=self)
+        return self.set_attack(attack=attack)
