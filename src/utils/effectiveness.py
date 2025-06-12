@@ -1,3 +1,7 @@
+# Diccionario que contiene la efectividad de cada tipo de Pokémon contra otros tipos.
+# Este diccionario se usa para calcular la efectividad de un ataque de un Pokémon contra otro Pokémon.
+# En caso de no estar el tipo de ataque en el diccionario, se asume que la efectividad es 1.0 (efectividad normal).
+
 effectiveness: dict[str, dict[str, float]] = {
     "Normal": {
         "Roca": 0.5,

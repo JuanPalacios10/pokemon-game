@@ -1,6 +1,9 @@
-from src.utils.moves import moves
+from src.utils.moves import moves # Importamos el diccionario con los movimientos
 import math
 
+# Creamos la clase Pokemon que representa un Pokémon con sus atributos y métodos para interactuar con ellos.
+# Se creó para encapsular la información especifica de un Pokémon y proporcionar métodos para acceder a sus atributos.
+# Se inicializa con un diccionario que contiene los datos del Pokémon y es retornada por el dataset.
 
 class Pokemon:
     def __init__(self, data: dict[str, int | str]) -> None:
@@ -38,8 +41,15 @@ class Pokemon:
         power = moves.get(move_name, {}).get("poder")
         if power is not None:
             return int(self._data["Ataque"]) * power
-
         return 0
+        """
+        Calcula y devuelve la multiplicación del ataque del Pokémon por el poder del movimiento.
+        que se usará en el calculo del daño en los combates.
+        """
 
     def get_move_type(self, move_name: str) -> str:
-        return moves.get(move_name, {}).get("tipo", "")
+        return moves.get(move_name, {}).get("tipo", "")        
+        """
+        Devuelve el tipo del movimiento especificado. Pues es necesario en el calculo de la efectividad del ataque
+        en el caso de que el Pokémon rival y aliado tengan dos tipos.
+        """
