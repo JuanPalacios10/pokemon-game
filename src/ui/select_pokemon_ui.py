@@ -350,10 +350,3 @@ class PokemonSelectionScreen:
             combat_ui.run()
         else:
             print("Debes seleccionar 5 Pokémon para cada jugador antes de continuar.")
-
-
-# Ejecutamos la pantalla de selección solo si es el módulo principal
-primera_pantalla = PokemonSelectionScreen()
-if __name__ == "__main__":
-    primera_pantalla.run()
-    pygame.quit()
