@@ -96,6 +96,12 @@ class Combat:
         self.__state = CombatState.WINNER
         self.__winner = winner
 
+    def get_current_attack(self) -> str:
+        return self.__current_attack
+
+    def set_current_attack(self, attack: str) -> None:
+        self.__current_attack = attack
+
     def calculate_effectiveness(
         self, current_trainer: Trainer, next_trainer: Trainer, attack: str
     ) -> float:
