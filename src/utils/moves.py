@@ -1,3 +1,6 @@
+# Diccionario de movimientos que retorna el nombre, el poder para calcular el daño 
+# y el tipo del movimiento para el calculo de la efectividad.
+
 moves: dict[str, dict[str, str | int]] = {
     "Hoja Afilada": {"tipo": "Planta", "poder": 55},
     "Terremoto": {"tipo": "Tierra", "poder": 100},
