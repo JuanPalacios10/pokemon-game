@@ -58,7 +58,7 @@ class Enemy(Trainer):
         live_pokemon_player = player.get_live_pokemon()
 
         # Se determina el entrenador actual y el siguiente según si se maximiza o minimiza
-        # Si se maximiza, el estado del combate proviene de la elección del jugador, por eso el turno acutal es del usuario
+        # Si se maximiza, el estado del combate proviene de la elección del jugador, por eso el turno actual es del usuario
         # En caso contrario, el turno actual es de la IA
         current_trainer = player if maximizing else enemy
         next_trainer = enemy if maximizing else player
